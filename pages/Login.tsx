@@ -39,7 +39,6 @@ const Login: React.FC = () => {
         <form onSubmit={handleSubmit} className="space-y-6">
           <Input
             label="Email"
-            type="email"
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}

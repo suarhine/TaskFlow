@@ -5,7 +5,7 @@ import Button from '../components/Button';
 import Input from '../components/Input';
 
 const Login: React.FC = () => {
-  const [username, setUsername] = useState('');
+  const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const login = useAuthStore(state => state.login);
@@ -13,13 +13,13 @@ const Login: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!username.trim()) return;
+    if (!identifier.trim()) return;
     
     setLoading(true);
     
     // Simulate API call
     setTimeout(() => {
-      login(username);
+      login(identifier);
       setLoading(false);
       navigate('/dashboard');
     }, 1000);
@@ -40,11 +40,11 @@ const Login: React.FC = () => {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <Input
-            label="Username"
+            label="Email or Username"
             type="text"
-            placeholder="Enter your username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Enter your email or username"
+            value={identifier}
+            onChange={(e) => setIdentifier(e.target.value)}
             required
             autoCapitalize="off"
           />

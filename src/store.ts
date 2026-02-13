@@ -54,7 +54,7 @@ export const useAuthStore = create<AuthState>((set) => ({
     user: {
       id: 'u1',
       username,
-      name: username, // Just use username as name for simplicity
+      name: username.includes('@') ? username.split('@')[0] : username,
       avatarUrl: `https://ui-avatars.com/api/?name=${username}&background=random`
     }
   }),
